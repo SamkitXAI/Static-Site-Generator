@@ -15,6 +15,6 @@ class HTMLNode:
         raise NotImplementedError("This method should be implemented by a subclass")
     
     def props_to_html(self):
-        if self.props is None:
+        if not self.props:
             return ""
-        return " ".join([f' {key}="{value}" ' for key, value in self.props.items()])
+        return " "+" ".join([f'{key}="{value}"' for key, value in self.props.items()])

@@ -15,7 +15,7 @@ class TestLeafNode(unittest.TestCase):
         
     def test_props_to_html(self):
         node = LeafNode("p", "This is a paragraph", props={"class": "paragraph"})
-        self.assertEqual(node.props_to_html(), ' class="paragraph" ')
+        self.assertEqual(node.props_to_html(), ' class="paragraph"')
         
     def test_props_custom(self):
         props = {"class": "paragraph", "id": "first"}
@@ -32,7 +32,7 @@ class TestLeafNode(unittest.TestCase):
     
     def test_boot_devs(self):
         node = LeafNode("a", "Click me!", {"href": "https://www.google.com"})
-        self.assertEqual(node.to_html(), '<a href="https://www.google.com" >Click me!</a>')
+        self.assertEqual(node.to_html(), '<a href="https://www.google.com">Click me!</a>')
         
     
 
