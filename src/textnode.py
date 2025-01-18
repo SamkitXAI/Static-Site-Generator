@@ -2,7 +2,7 @@ from enum import Enum
 from leafnode import LeafNode
 
 class TextType(Enum):
-    NORMAL= "normal"
+    TEXT = "text"
     BOLD= "bold"
     ITALIC= "italic"
     CODE= "code"
@@ -42,12 +42,12 @@ def text_node_to_html_node(text_node):
         case TextType.LINK:
             if not text_node.url:
                 raise ValueError("URL is required for LINK type.")
-            return LeafNode("a", text_node.text, props={"href": text_node.url})
+            return LeafNode("a", text_node.text, {"href": text_node.url})
 
         case TextType.IMAGE:
             if not text_node.url:
                 raise ValueError("URL is required for IMAGE type.")
-            return LeafNode("img", "", props={"src": text_node.url, "alt": text_node.text})
+            return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
 
         case _:
             raise ValueError(f"Unsupported TextType: {text_node.text_type}")

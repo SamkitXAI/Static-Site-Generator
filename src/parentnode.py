@@ -12,4 +12,7 @@ class ParentNode(HTMLNode):
         
         
         children_html = "".join(child.to_html() if isinstance(child, HTMLNode) else "" for child in self.children)
-        return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"     
+        return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"  
+
+    def __repr__(self):
+        return f"ParentNode({self.tag}, children: {self.children}, {self.props})"
