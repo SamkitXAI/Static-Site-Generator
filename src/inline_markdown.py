@@ -98,3 +98,13 @@ def extract_markdown_links(text):
     pattern = r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)"
     matches = re.findall(pattern, text)
     return matches
+
+def extract_title(markdown):
+    """
+    Extracts the first H1 header from the markdown string.
+    """
+    for line in markdown.splitlines():
+        line = line.strip()
+        if line.startswith("# "):  # H1 headers start with "# "
+            return line[2:].strip()  # Strip the "# " and leading/trailing spaces
+    raise ValueError("No H1 header found in the markdown.")
